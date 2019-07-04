@@ -13,14 +13,14 @@ public class MyFirstProgram {
 
         Rectangle r = new Rectangle(4, 6);
         System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " = " + r.area());
-        
+
 
         Point p1 = new Point(30, 40);
         Point p2 = new Point(10, 20);
 
         printDistance(distance(p1, p2));
         System.out.println("Расстояние между точками: " + distance(p1, p2));
-        System.out.println("Расстояние между точками: " + Point.distance(p1, p2));
+        System.out.println("Расстояние между точками: " + p1.distance(p2));
     }
 
 
