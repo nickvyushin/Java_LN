@@ -1,10 +1,11 @@
-package ru.stqa.ln.addressbook;
+package ru.stqa.ln.addressbook.tests;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import org.openqa.selenium.*;
+import ru.stqa.ln.addressbook.model.ContactData;
 
 public class AddNewTests {
     private ChromeDriver wd;
