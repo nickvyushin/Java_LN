@@ -1,25 +1,31 @@
 package ru.stqa.ln.addressbook.model;
 
 public class ContactData {
-    private final String firstname;
-    private final String lastname;
-    private final String mobilenumber;
+    private final String firstName;
+    private final String lastName;
+    private final String mobileNumber;
+    private final String email;
 
-    public ContactData(String firstname, String lastname, String mobilenumber) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.mobilenumber = mobilenumber;
+    public ContactData(String firstName, String lastName, String mobileNumber, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobileNumber = mobileNumber;
+        this.email = email;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getMnumber() {
-        return mobilenumber;
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }
