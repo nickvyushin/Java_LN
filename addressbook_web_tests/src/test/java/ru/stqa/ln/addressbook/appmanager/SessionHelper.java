@@ -1,12 +1,12 @@
 package ru.stqa.ln.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 
 
 public class SessionHelper extends HelperBase {
 
-    public SessionHelper(ChromeDriver wd) {
+    public SessionHelper(WebDriver wd) {
         super(wd);
     }
 

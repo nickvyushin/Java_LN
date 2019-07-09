@@ -32,7 +32,6 @@ public class Equation {
             n = -1;
         }
 
-
     }
 
 
