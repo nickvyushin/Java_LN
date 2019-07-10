@@ -49,4 +49,13 @@ public class ContactHelper extends HelperBase {
     public void assertConfirmation() {
         wd.switchTo().alert().accept();
     }
+
+    public void createContact(ContactData contact, boolean creation) {
+        fillNewContact(contact, creation);
+        submitNewContact();
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.xpath("//img[@alt='Edit']"));
+    }
 }
