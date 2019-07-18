@@ -21,9 +21,11 @@ public class GroupCreationTests extends TestBase {
         Assert.assertEquals(after.size(), before.size() + 1);
 
         //(o1, o2) -> Integer.compare(o1.getId(), o2.getId()) - эта строка заменена средой на Comparator.comparingInt(GroupData::getId)
-        group.setId(after.stream().max(Comparator.comparingInt(GroupData::getId)).get().getId());
         before.add(group);
-        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+        Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
+        before.sort(byId);
+        after.sort(byId);
+        Assert.assertEquals(before, after);
     }
 
 
