@@ -8,7 +8,7 @@ import ru.stqa.ln.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
 
-    public ContactHelper(WebDriver wd){
+    public ContactHelper(WebDriver wd) {
         super(wd);
     }
 
@@ -19,7 +19,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("mobile"), contactData.getMobileNumber());
         type(By.name("email"), contactData.getEmail());
 
-        if(creation) {
+        if (creation) {
             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
@@ -57,5 +57,9 @@ public class ContactHelper extends HelperBase {
 
     public boolean isThereAContact() {
         return isElementPresent(By.xpath("//img[@alt='Edit']"));
+    }
+
+    public int getGroupCount() {
+        return wd.findElements(By.name("selected[]")).size();
     }
 }
