@@ -63,7 +63,7 @@ public class ContactHelper extends HelperBase {
         return isElementPresent(By.xpath("//img[@alt='Edit']"));
     }
 
-    public int getGroupCount() {
+    public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
     }
 
@@ -71,8 +71,9 @@ public class ContactHelper extends HelperBase {
         List<ContactData> contacts = new ArrayList<ContactData>();
         List<WebElement> elements = wd.findElements(By.xpath("//td[3]"));
         for (WebElement element : elements) {
-            String name = element.getText();
-            ContactData contact = new ContactData(name, null, null, null, null);
+            String firstName = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            ContactData contact = new ContactData(id, firstName, null, null, null, null);
             contacts.add(contact);
         }
         return contacts;

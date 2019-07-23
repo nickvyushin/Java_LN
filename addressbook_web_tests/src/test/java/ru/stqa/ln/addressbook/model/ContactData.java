@@ -3,6 +3,7 @@ package ru.stqa.ln.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
+    private int id;
     private final String firstName;
     private final String lastName;
     private final String mobileNumber;
@@ -10,11 +11,24 @@ public class ContactData {
     private String group;
 
     public ContactData(String firstName, String lastName, String mobileNumber, String email, String group) {
+        this.id = 0;
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobileNumber = mobileNumber;
         this.email = email;
         this.group = group;
+    }
+    public ContactData(int id, String firstName, String lastName, String mobileNumber, String email, String group) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobileNumber = mobileNumber;
+        this.email = email;
+        this.group = group;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getFirstName() {
@@ -40,7 +54,8 @@ public class ContactData {
     @Override
     public String toString() {
         return "ContactData{" +
-                "firstName='" + firstName + '\'' +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
                 '}';
     }
 
@@ -49,11 +64,16 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(firstName, that.firstName);
+        return id == that.id &&
+                Objects.equals(firstName, that.firstName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName);
+        return Objects.hash(id, firstName);
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
