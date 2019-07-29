@@ -1,11 +1,10 @@
 package ru.stqa.ln.addressbook.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 import ru.stqa.ln.addressbook.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 
@@ -26,6 +25,8 @@ public class GroupCreationTests extends TestBase {
         before.sort(byId);
         after.sort(byId);
         Assert.assertEquals(before, after);
+
+
     }
 
 

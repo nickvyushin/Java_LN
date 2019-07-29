@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import ru.stqa.ln.addressbook.model.ContactData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTests extends TestBase{
