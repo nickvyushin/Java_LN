@@ -30,7 +30,7 @@ public class NavigationHelper extends HelperBase {
         click(By.linkText("home page"));
     }
 
-    public void gotoHome() {
+    public void Home() {
 
         if (isElementPresent(By.id("maintable"))) {
             return;
