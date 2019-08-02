@@ -11,30 +11,30 @@ public class ContactCreationTests extends TestBase{
 
     @Test
     public void testContactCreation() {
-        Contacts before = app.contact().all();
+        Contacts before = app.contact().all2();
         ContactData contact = new ContactData()
-                .withFirstName("Piter").withLastName("Petrovich").withEmail("test@test.test").withMobileNumber("5439876554")
+                .withFirstName("Piter").withLastName("Petrovich").withEmail("test@test.test").withMobilePhone("5439876554")
                 .withGroup("Test11");
         app.goTo().addNew();
         app.contact().create(contact, true);
         app.goTo().homePage();
         assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.contact().all();
+        Contacts after = app.contact().all2();
         assertThat(after, equalTo(
                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     }
 
     @Test(enabled = false)
     public void testBadContactCreation() {
-        Contacts before = app.contact().all();
+        Contacts before = app.contact().all2();
         ContactData contact = new ContactData()
-                .withFirstName("Piter").withLastName("Petrovich").withEmail("test@test.test").withMobileNumber("5439876554")
+                .withFirstName("Piter").withLastName("Petrovich").withEmail("test@test.test").withMobilePhone("5439876554")
                 .withGroup("Test11");
         app.goTo().addNew();
         app.contact().create(contact, true);
         app.goTo().homePage();
         assertThat(app.contact().count(), equalTo(before.size()));
-        Contacts after = app.contact().all();
+        Contacts after = app.contact().all2();
         assertThat(after, equalTo(before));
     }
 
