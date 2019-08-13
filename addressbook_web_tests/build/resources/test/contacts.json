@@ -1,0 +1,23 @@
+[
+  {
+    "firstName": "Ivan",
+    "lastName": "Ivanov",
+    "address": "Akademiks Koroleva 0",
+    "mobilePhone": "1234 0",
+    "email": "test0@tect.ts"
+  },
+  {
+    "firstName": "Ivan",
+    "lastName": "Ivanov",
+    "address": "Akademiks Koroleva 1",
+    "mobilePhone": "1234 1",
+    "email": "test1@tect.ts"
+  },
+  {
+    "firstName": "Ivan",
+    "lastName": "Ivanov",
+    "address": "Akademiks Koroleva 2",
+    "mobilePhone": "1234 2",
+    "email": "test2@tect.ts"
+  }
+]
