@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.ln.addressbook.tests.ContactCreationTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-08-14T08:54:58" hostname="LAPTOP-MQ8PBBFT" time="13.278">
+  <properties/>
+  <testcase name="testContactCreation[0](ContactData{id=2147483647, firstName='Ivan', lastName='Ivanov'})" classname="ru.stqa.ln.addressbook.tests.ContactCreationTests" time="4.914"/>
+  <testcase name="testContactCreation[1](ContactData{id=2147483647, firstName='Ivan', lastName='Ivanov'})" classname="ru.stqa.ln.addressbook.tests.ContactCreationTests" time="4.085"/>
+  <testcase name="testContactCreation[2](ContactData{id=2147483647, firstName='Ivan', lastName='Ivanov'})" classname="ru.stqa.ln.addressbook.tests.ContactCreationTests" time="4.276"/>
+  <system-out><![CDATA[12:54:58.486 [Test worker] INFO  r.stqa.ln.addressbook.tests.TestBase - Start test testContactCreation[ContactData{id=2147483647, firstName='Ivan', lastName='Ivanov'}]
+12:55:03.406 [Test worker] INFO  r.stqa.ln.addressbook.tests.TestBase - Stop test testContactCreation
+12:55:03.407 [Test worker] INFO  r.stqa.ln.addressbook.tests.TestBase - Start test testContactCreation[ContactData{id=2147483647, firstName='Ivan', lastName='Ivanov'}]
+12:55:07.492 [Test worker] INFO  r.stqa.ln.addressbook.tests.TestBase - Stop test testContactCreation
+12:55:07.493 [Test worker] INFO  r.stqa.ln.addressbook.tests.TestBase - Start test testContactCreation[ContactData{id=2147483647, firstName='Ivan', lastName='Ivanov'}]
+12:55:11.769 [Test worker] INFO  r.stqa.ln.addressbook.tests.TestBase - Stop test testContactCreation
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

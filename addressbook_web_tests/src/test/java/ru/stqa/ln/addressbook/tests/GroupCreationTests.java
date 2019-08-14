@@ -3,6 +3,8 @@ package ru.stqa.ln.addressbook.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.ln.addressbook.model.GroupData;
@@ -21,6 +23,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class GroupCreationTests extends TestBase {
+
+    Logger logger = LoggerFactory.getLogger(GroupCreationTests.class);
 
     @DataProvider
     public Iterator<Object[]> validGroupsFromXml() throws IOException {
