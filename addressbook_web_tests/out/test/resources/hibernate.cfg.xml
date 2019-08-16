@@ -25,5 +25,6 @@
         <property name="hbm2ddl.auto">validate</property>
         <!--  Names the annotated entity class  -->
         <mapping class="ru.stqa.ln.addressbook.model.GroupData"/>
+        <mapping class="ru.stqa.ln.addressbook.model.ContactData"/>
     </session-factory>
 </hibernate-configuration>
