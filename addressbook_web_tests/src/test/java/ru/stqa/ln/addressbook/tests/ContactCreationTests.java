@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import ru.stqa.ln.addressbook.model.ContactData;
 import ru.stqa.ln.addressbook.model.Contacts;
 import ru.stqa.ln.addressbook.model.GroupData;
+import ru.stqa.ln.addressbook.model.Groups;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -64,12 +65,15 @@ public class ContactCreationTests extends TestBase{
 
     @Test(enabled = false)
     public void testBadContactCreation() {
+        Groups groups = app.db().groups();
+        //File photo = new File("src/test/resources/mark.png");
+        ContactData newContact = new ContactData().withFirstName("Piter").withLastName("Petrovich")
+                .withMobilePhone("5439876554").withEmail("test@test.test")
+                /*.withPhoto(photo)*/
+                .inGroup(groups.iterator().next());
         Contacts before = app.db().contacts();
-        ContactData contact = new ContactData()
-                .withFirstName("Piter").withLastName("Petrovich").withEmail("test@test.test").withMobilePhone("5439876554")
-                .withGroup("Test11");
         app.goTo().addNew();
-        app.contact().create(contact, true);
+        app.contact().create(newContact, true);
         app.goTo().homePage();
         assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.db().contacts();
