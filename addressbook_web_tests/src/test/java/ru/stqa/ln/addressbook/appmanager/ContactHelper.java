@@ -3,8 +3,10 @@ package ru.stqa.ln.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import ru.stqa.ln.addressbook.model.ContactData;
 import ru.stqa.ln.addressbook.model.Contacts;
+import ru.stqa.ln.addressbook.model.GroupData;
 
 import java.util.HashSet;
 import java.util.List;
@@ -154,5 +156,33 @@ public class ContactHelper extends HelperBase {
         wd.navigate().back();
         return new ContactData().withId(contact.getId()).withFirstName(firstname).withLastName(lastname)
                 .withEmail(email).withEmail2(email2).withEmail3(email3);
+    }
+
+    public void addToGroup(ContactData contact, GroupData group) {
+        selectById(contact.getId());
+        selectGroupToAddContact(group);
+        addContactToGroup();
+    }
+
+    private void selectGroupToAddContact( GroupData group) {
+        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
+    }
+
+    private void addContactToGroup() {
+        click(By.xpath("//input[@value='Add to']"));
+    }
+
+    public void removeFromGroup(ContactData contact, GroupData group) {
+        selectGroupToRemoveContact(group);
+        selectById(contact.getId());
+        removeContactFromGroup();
+    }
+
+    private void removeContactFromGroup() {
+        click(By.name("remove"));
+    }
+
+    private void selectGroupToRemoveContact(GroupData group) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
     }
 }
