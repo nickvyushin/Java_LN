@@ -1,6 +1,5 @@
 package ru.stqa.ln.mantis.appmanager;
 
-import com.beust.jcommander.JCommander;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -22,6 +21,10 @@ public class ApplicationManager {
     private FtpHelper ftp;
     private MailHelper mailHelper;
     private JamesHelper jamesHelper;
+    private LoginHelper loginHelper;
+    private NavigationHelper navigationHelper;
+    private DbHelper dbHelper;
+    private ChangePasswordHelper changePasswordHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -29,7 +32,8 @@ public class ApplicationManager {
     }
 
 
-    public void init() throws IOException {
+    public void init() throws IOException
+    {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
     }
@@ -89,5 +93,33 @@ public class ApplicationManager {
             jamesHelper = new JamesHelper(this);
         }
         return jamesHelper;
+    }
+
+    public LoginHelper login() {
+        if (loginHelper == null) {
+            loginHelper = new LoginHelper(this);
+        }
+        return loginHelper;
+    }
+
+    public NavigationHelper goTo() {
+        if (navigationHelper == null) {
+            navigationHelper = new NavigationHelper(this);
+        }
+        return navigationHelper;
+    }
+
+    public DbHelper db() {
+        if (dbHelper == null) {
+            dbHelper = new DbHelper(this);
+        }
+        return dbHelper;
+    }
+
+    public ChangePasswordHelper change() {
+        if (changePasswordHelper == null) {
+            changePasswordHelper = new ChangePasswordHelper(this);
+        }
+        return changePasswordHelper;
     }
 }
