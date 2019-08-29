@@ -30,6 +30,22 @@ public class AddContactTests extends TestBase {
         ContactData addedContact = contacts.iterator().next();
         GroupData toGroup = groups.iterator().next();
         Groups before = addedContact.getGroups();
+        Contacts groupContacts = toGroup.getContacts();
+        if (groupContacts.contains(addedContact)) {
+            for (GroupData group : groups.without(toGroup)) {
+                Contacts contactsInGroup = group.getContacts();
+                if (!contactsInGroup.contains(addedContact)) {
+                    toGroup = group;
+                }
+            }
+            app.goTo().groupPage();
+            app.group().create(new GroupData().withName("Test11").withFooter("Test22").withHeader("Test33"));
+            for (GroupData groupNew : app.db().groups()) {
+                if (groupNew.getName().equals("Test11")) {
+                    toGroup = groupNew;
+                }
+            }
+        }
         app.goTo().home();
         app.contact().addToGroup(addedContact, toGroup);
         Groups after = addedContact.getGroups();

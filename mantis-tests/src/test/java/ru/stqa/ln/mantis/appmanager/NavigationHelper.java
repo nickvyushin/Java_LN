@@ -10,7 +10,7 @@ public class NavigationHelper extends HelperBase{
         super(app);
     }
     public void control() {
-        click(By.xpath("//li[6]/a/i"));
+        click(By.xpath("//li[7]/a/i"));
     }
 
     public void controlUsers() {

@@ -29,6 +29,11 @@ public class RemoveContactTests extends TestBase {
         Contacts contacts = app.db().contacts();
         ContactData contactInGroup = contacts.iterator().next();
         Groups groupsBefore = contactInGroup.getGroups();
+        if (groupsBefore.size() == 0) {
+            Groups groups = app.db().groups();
+            GroupData groupToAdd = groups.iterator().next();
+            app.contact().addToGroup(contactInGroup, groupToAdd);
+        }
         GroupData group = groupsBefore.iterator().next();
         app.goTo().home();
         app.contact().removeFromGroup(contactInGroup, group);
